@@ -1,0 +1,21 @@
+Sample_array = [12, 11, 13, 5, 6]
+
+#Start the outer loop at the second element (index 1)
+for i in range(1, len(Sample_array)):
+    
+    #The key is the element we're looking at in this interation
+    key = Sample_array[i]
+    
+    #Start comparing with the element just before the key
+    j = i-1
+    
+    #Move elements of the sorted segment backwards until the correct
+    while j >= 0 and key < Sample_array[i]:
+        Sample_array[j + 1] = Sample_array[i]#Swap the slot we're looking at with the one in front
+        j -= 1 #decrement j
+    
+    #Once out of the loop, place the key at after the last compared element
+    Sample_array[j + 1] = key
+
+#Print the sorted array
+print(Sample_array)
